@@ -51,10 +51,12 @@ module.exports.datastores = {
     // adapter: 'sails-mysql',
     // url: 'mysql://user:password@host:port/database',
     adapter: 'sails-mongo',
-    port: '27017',
-    host: 'localhost',
-    database: 'apiperftestdb'
+    url: 'mongodb://localhost:27017/apiperftestdb',
+    // port: '27017',
+    // host: 'localhost',
+    // database: 'apiperftestdb'
   },
 
 
 };
+

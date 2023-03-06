@@ -1,6 +1,15 @@
 module.exports.routes = {
-  'GET /users': 'UserController.getUsers',
-  'POST /users': 'UserController.createUser',
-  'GET /speedtests/:userId': 'SpeedTestController.getSpeedTestsByUser',
+  '/': {
+    view: 'pages/homepage',
+  },
+  'get /users': { action:'user/find-all' },
+  'post /users': { action: 'user/create' },
+  'delete /user/:sessionId' : { action: 'user/delete' },
   // ...
+  // 'get /swagger' : {
+  //   view: 'swagger',
+  //   locals: {
+  //     layout: 'layouts/layout'
+  //   }
+  // },
 };
