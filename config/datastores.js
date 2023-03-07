@@ -12,6 +12,7 @@
  * For more information on configuring datastores, check out:
  * https://sailsjs.com/config/datastores
  */
+require('dotenv').config();
 
 module.exports.datastores = {
 
@@ -48,13 +49,9 @@ module.exports.datastores = {
     *    (See https://sailsjs.com/config/datastores for help.)                 *
     *                                                                          *
     ***************************************************************************/
-    // adapter: 'sails-mysql',
-    // url: 'mysql://user:password@host:port/database',
     adapter: 'sails-mongo',
-    url: 'mongodb://localhost:27017/apiperftestdb',
-    // port: '27017',
-    // host: 'localhost',
-    // database: 'apiperftestdb'
+    url: `mongodb+srv://15inhyuk:${process.env.MONGO_PASSWORD}@ap-perf-db.eqw3hf4.mongodb.net/ap-perf-db?retryWrites=true&w=majority`,
+    ssl: true
   },
 
 

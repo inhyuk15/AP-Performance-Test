@@ -11,7 +11,7 @@ module.exports = {
   exits : {
     success: {
       statusCode: 200,
-      outputExample: [{id: 1, sessionId: '2', locationId: '2', timeStamp: 1678087702136},]
+      outputExample: [{id: 1, sessionId: '2', locationId: '2', timeStamp: 1678087702136},],
       description: 'user deleted'
     },
     invalid: {
