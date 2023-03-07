@@ -12,6 +12,7 @@
     "dotenv": "16.0.3",
     "grunt": "1.0.4",
     "nodemon": "2.0.21",
+    "pm2": "5.2.2",
     "sails": "^1.5.4",
     "sails-hook-grunt": "^5.0.0",
     "sails-hook-orm": "^4.0.0",
