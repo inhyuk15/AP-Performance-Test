@@ -50,7 +50,8 @@ module.exports.datastores = {
     *                                                                          *
     ***************************************************************************/
     adapter: 'sails-mongo',
-    url: `mongodb+srv://15inhyuk:${process.env.MONGO_PASSWORD}@ap-perf-db.eqw3hf4.mongodb.net/ap-perf-db?retryWrites=true&w=majority`,
+    url: `mongodb+srv://15inhyuk:${process.env.MONGO_PASSWORD}@cluster0.udlizzr.mongodb.net/ap-perf-db?retryWrites=true&w=majority`,
+    
     ssl: true
   },
 

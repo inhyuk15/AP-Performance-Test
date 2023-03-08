@@ -19,8 +19,12 @@
  * https://sailsjs.com/docs/concepts/deployment
  */
 
-module.exports = {
+const securityConfig = require('../security');
 
+module.exports = {
+  port: process.env.PORT || 1337,
+  environment: process.env.NODE_ENV || 'production',
+  host: '0.0.0.0',
 
   /**************************************************************************
   *                                                                         *
@@ -47,8 +51,6 @@ module.exports = {
     *                                                                          *
     ***************************************************************************/
     default: {
-      // adapter: 'sails-mysql',
-      // url: 'mysql://user:password@host:port/database',
       //--------------------------------------------------------------------------
       //  /\   To avoid checking it in to version control, you might opt to set
       //  ||   sensitive credentials like `url` using an environment variable.
@@ -134,26 +136,29 @@ module.exports = {
   * tested with CSRF protection turned on in development mode too.           *
   *                                                                          *
   ***************************************************************************/
-  security: {
+  security: securityConfig.security,
+  // security: {
 
-    /***************************************************************************
-    *                                                                          *
-    * If this app has CORS enabled (see `config/security.js`) with the         *
-    * `allowCredentials` setting enabled, then you should uncomment the        *
-    * `allowOrigins` whitelist below.  This sets which "origins" are allowed   *
-    * to send cross-domain (CORS) requests to your Sails app.                  *
-    *                                                                          *
-    * > Replace "https://example.com" with the URL of your production server.  *
-    * > Be sure to use the right protocol!  ("http://" vs. "https://")         *
-    *                                                                          *
-    ***************************************************************************/
-    cors: {
-      // allowOrigins: [
-      //   'https://example.com',
-      // ]
-    },
+  //   /***************************************************************************
+  //   *                                                                          *
+  //   * If this app has CORS enabled (see `config/security.js`) with the         *
+  //   * `allowCredentials` setting enabled, then you should uncomment the        *
+  //   * `allowOrigins` whitelist below.  This sets which "origins" are allowed   *
+  //   * to send cross-domain (CORS) requests to your Sails app.                  *
+  //   *                                                                          *
+  //   * > Replace "https://example.com" with the URL of your production server.  *
+  //   * > Be sure to use the right protocol!  ("http://" vs. "https://")         *
+  //   *                                                                          *
+  //   ***************************************************************************/
+  //   cors: {
+  //     allRoutes: true,
+  //     allowOrigins: ['http://*', 'https://*'],
+  //     allowCredentials: false,
+  //     allowRequestHeaders: 'content-type, authorization',
+  //     allowRequestMethods: 'GET, POST, PUT, DELETE, OPTIONS, HEAD',
+  //   },
 
-  },
+  // },
 
 
 
@@ -266,7 +271,10 @@ module.exports = {
     *                                                                          *
     ***************************************************************************/
     onlyAllowOrigins: [
+      // 'http://*', 'https://*'
       'http://222.234.254.143:1337',
+      'http://3.34.122.225:1337',
+      // 'http://168.188.234.58:1337',
     ],
 
 
@@ -339,7 +347,7 @@ module.exports = {
     * (https://sailsjs.com/config/http)                                        *
     *                                                                          *
     ***************************************************************************/
-    // trustProxy: true,
+    trustProxy: true,
 
   },
 
