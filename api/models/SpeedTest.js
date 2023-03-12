@@ -12,7 +12,7 @@ module.exports = {
     roomNumber: { type: 'string' },
     // yPos: { type: 'number' },
     // xPos: { type: 'number' },
-    sessionId: { type : 'string' },
+    sessionId: { type : 'string', unique: true },
     downloadSpeed: { type: 'string' },
     timeStamp: { type: 'string' },
   },

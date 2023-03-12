@@ -15,6 +15,7 @@ module.exports = {
 				sessionId: {
           type: 'string',
           required: true,
+          unique: true,
           description: 'session id for speedtest'
         },
 				downloadSpeed: {
@@ -34,11 +35,20 @@ module.exports = {
         },
         invalid: {
           description: 'The provided inputs invalid'
+        },
+        conflict: {
+          description: 'The provided sessionId already exists'
         }
       },
       
-      fn: async ({floorNumber, roomNumber, sessionId, downloadSpeed, timeStamp}, exits) => {
+      fn: async (inputs, exits) => {
+        const {floorNumber, roomNumber, sessionId, downloadSpeed, timeStamp} = inputs;
         try {
+          const existingSpeedTest = await SpeedTest.findOne({ sessionId: sessionId });
+          if (existingSpeedTest) {
+            return exits.conflict(`The provided sessionId '${sessionId}' already exists`);
+          }
+
           const results = await SpeedTest.create({
 						floorNumber,
 						roomNumber,

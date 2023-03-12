@@ -1,3 +1,5 @@
+const SpeedTest = require("../../models/SpeedTest");
+
 module.exports = {
 
 
@@ -16,13 +18,14 @@ module.exports = {
 
   },
 
-
-  fn: async function (inputs) {
-
-    // All done.
-    return;
-
-  }
+  fn: async (inputs, exits) => {
+    try {
+      const users = await SpeedTest.findOne({sessionId: 'string'});
+      return exits.success(users);
+    } catch (error) {
+      return exits.serverError(error);
+    }
+  },
 
 
 };
